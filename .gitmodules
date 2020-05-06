@@ -1,0 +1,3 @@
+[submodule "cppcombinator"]
+	path = cppcombinator
+	url = https://github.com/MoserMichael/cppcombinator
