@@ -6,6 +6,8 @@ current unix shells don't work well with structured data; i think that a next ge
 The shell needs to be paired with an interpreted programming language; the following requirements are identified:
 
 - shell must work with structured data, so it needs built in support for arrays and hash maps.
+- ability to trace execution: bash has set -x to trace execution of a script; think that is very important.
+- still keep the ability to execute shell commands organically (that's why it is a shell ;-); so the syntax of the language can't be too complicated.
 
 # the problem to solve
 
