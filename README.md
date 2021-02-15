@@ -1,8 +1,11 @@
 
 # the plan
 
-in order to be successful, a programming language needs to fill a particular niche and application (and it needs to do that quite well)
-This one is going to be a shell scripting language. I think that there is a need for a Unix shell that works with structured data. 
+current unix shells don't work well with structured data; i think that a next gen shell needs to focus on structured data - hacks like jq and yq need to be made redundant as being part of the shell. 
+
+The shell needs to be paired with an interpreted programming language; the following requirements are identified:
+
+- shell must work with structured data, so it needs built in support for arrays and hash maps.
 
 # the problem to solve
 
@@ -13,7 +16,7 @@ Bash can work with structured data by using utilities like jq and yq, and the ba
 - complicated bash scripts look awkward and out of place; i think the shell scripting language is just designed to glue togather programs in cases that the unix pipeline doesn't cut it.
 - needs slightly more practical support for expression with numbers.
 - performant: bash is quite slow; probably needs to be a bit faster.
-- bash syntax is strictly LALR (it uses yacc) so that parsing is fast; but i think that's too limiting in this day and age (hope that parsing doesn't get too slow for my tools) 
+- bash scripting language syntax is strictly LALR (it uses yacc) so that parsing is fast; but i think that's too limiting in this day and age (hope that parsing doesn't get too slow for my tools) 
 
 # required features
 
