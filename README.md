@@ -9,6 +9,12 @@ The shell needs to be paired with an interpreted programming language; the follo
 - ability to trace execution: bash has set -x to trace execution of a script; think that is very important.
 - still keep the ability to execute shell commands organically (that's why it is a shell ;-); so the syntax of the language can't be too complicated.
 
+problems:
+
+environment variables only work as strings; how do you export an array or hash? 
+In bash you can't export an array, as it is hard to have an equivalent representation as an environment variable. [link](https://stackoverflow.com/questions/5564418/exporting-an-array-in-bash-script). I think that array/hashes should be exported as structured text (yaml or json or xml, depending on the type of export)
+
+
 # the problem to solve
 
 Bash can work with structured data by using utilities like jq and yq, and the bash shell scripting language can work with hashes and arrays, but it is a stretch due to the following reasons:
