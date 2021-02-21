@@ -185,6 +185,10 @@ struct LiteralStringContent : PTokVar<ruleId, pparse_quoted_string_content>  {
 };
  
 
+struct funcToken : PTok<0, CSTR4("func")> {};
+
+
+
 /*** forward declaration of rules ***/
 
 struct regex;
@@ -334,11 +338,11 @@ struct funcDefParams : PSeq<0, PTokIdentifierCStyle<0>, PStar<0, PSeq<0, PTok<0,
 struct funcDefParamList : PSeq<0, PTok<0, CSTR1("(")>,  funcDefParams, PTok<0, CSTR1(")")> > {}; 
 
 // funcdef : 'func' PTokIdentifierCStyle <funcDefParamList>
-struct funcdef : PSeq<FuncDef, PTok<0, CSTR4("func")>, PTokIdentifierCStyle<0>,  funcDefParamList, stmtlistInner > {};
+struct funcdef : PSeq<FuncDef, funcToken, PTokIdentifierCStyle<0>,  funcDefParamList, stmtlistInner > {};
 
 
 // funcdefAnonymous : 'func' PTokIdentifierCStyle <funcDefParamList>
-struct funcdefAnonymous : PSeq<FuncDef, PTok<0, CSTR4("func")>,  funcDefParamList, stmtlistInner > {};
+struct funcdefAnonymous : PSeq<FuncDef, funcToken,  funcDefParamList, stmtlistInner > {};
 
 
 // funcCallParam := rhs_expr (, rhs_expr ) *
@@ -348,7 +352,7 @@ struct funcCallParams : PSeq<0, rhs_expr, PStar<0, PSeq<0, PTok<0, CSTR1(",") >,
 struct funCallParamList : PSeq<0, PTok<0, CSTR1("(")>,  funcCallParams, PTok<0, CSTR1(")")> > {}; 
 
 // funccall : 'func' PTokIdentifierCStyle <funcCallParamList>
-struct funccall : PSeq<FuncCall, PTok<0, CSTR4("func")>, PTokIdentifierCStyle<0>,  funCallParamList, stmtlistInner > {};
+struct funccall : PSeq<FuncCall, funcToken, PTokIdentifierCStyle<0>,  funCallParamList, stmtlistInner > {};
 
 struct stmtlistInner;
 
